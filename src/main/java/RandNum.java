@@ -16,8 +16,9 @@ public class RandNum {
 
     public int getRandomNumberWeights(){
         this.randNum = ThreadLocalRandom.current().nextInt(1,sum+1);
-        int num = 0;
         int[] tempArr = new int[weight.length];
+        int num = 0;
+
         for (int i = 0; i < value.length; i++) {
             if(i==0){
                 tempArr[0] = weight[0];
@@ -25,6 +26,7 @@ public class RandNum {
             }
             tempArr[i] = tempArr[i-1] + weight[i];
         }
+
         for (int i = 0; i < tempArr.length; i++) {
             if(tempArr[i] > this.randNum){
                 num = value[i];
